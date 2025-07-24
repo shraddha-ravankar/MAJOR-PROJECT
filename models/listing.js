@@ -5,9 +5,10 @@ const mongoose = require('mongoose');
 const Schema=mongoose.Schema;
 
 const listingSchema=new Schema({
-    tital:{
-        type:String,
-        required:true,},
+   title: {
+  type: String,
+  required: true
+},
     description:String,
     image:{
         type:String,
@@ -21,4 +22,4 @@ const listingSchema=new Schema({
 })
 
 const Listing =mongoose.model("Listing",listingSchema);
-module.export=Listing
+module.exports=Listing
