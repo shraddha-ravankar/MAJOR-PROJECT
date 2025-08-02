@@ -2,7 +2,7 @@ const express=require("express");
 const app=express();
 const mongoose=require("mongoose") //mongooes is libary hence use required
 
-const Listing = require('./models/listing');
+const Listing = require('./models/listing.js');
 
 const mongo_url="mongodb://127.0.0.1:27017/wanderlust"; //wandurlust is database name
 main()
@@ -18,11 +18,12 @@ async function main(){
 }    
 
 
-app.get("./",(req,res)=>{//get is use to send request
+app.get("/",(req,res)=>{//get is use to send request
     res.send("hi i am root") //send send response to server on local host 
     
 
 })
+
 app.get("/testListing", async (req, res) => {
   let sampleListing = new Listing({
     title: "My New Villa",
@@ -35,6 +36,7 @@ app.get("/testListing", async (req, res) => {
   await sampleListing.save();
   console.log("sample was saved");
   res.send("successful testing");
+
 });
 app.listen(8080,()=>{ //lestioning on port
     console.log("server is listening to port 8080")
